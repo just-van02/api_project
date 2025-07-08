@@ -1,12 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Brewery Finder</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Brewery Finder 🍺</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
-  <h1>Open Brewery DB API</h1>
-  <ul id="brewery-list"></ul>
+  <div class="container">
+    <h1>Brewery Finder 🍺</h1>
+
+    <div class="search-box">
+      <input
+        type="text"
+        id="searchInput"
+        placeholder="Search by name, city, or state..."
+      />
+      <button onclick="searchBreweries()">Search</button>
+    </div>
+
+    <div id="loading" class="loading hidden">Loading...</div>
+    <div id="results" class="results"></div>
+  </div>
 
   <script src="script.js"></script>
 </body>
