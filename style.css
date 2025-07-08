@@ -1,0 +1,158 @@
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background: #f8f8f8;
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* 🆕 Search Row Layout */
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-row select,
+.search-row input,
+.search-row button {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+/* 🔽 Compact sizes */
+.search-row select {
+  width: 120px;
+}
+
+.search-row input[type="text"] {
+  width: 160px;
+}
+
+/* ✅ Green Search Button */
+.search-row button {
+  background-color: #198754;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.search-row button:hover {
+  background-color: #157347;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.search-row select:hover,
+.search-row input:hover,
+.search-row select:focus,
+.search-row input:focus {
+  border-color: #999;
+  outline: none;
+  box-shadow: 0 0 4px rgba(100, 100, 100, 0.1);
+}
+
+.loading {
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+
+.hidden {
+  display: none;
+}
+
+/* 🆕 Centered Results Container */
+#results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+/* 🆕 Stylish Card for Brewery */
+.brewery {
+  background: #ffffff;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+  border-left: 4px solid #0077b6;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+
+  width: 100%;
+  max-width: 600px;
+}
+
+.brewery:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.brewery h3 {
+  margin: 0 0 8px;
+  font-size: 20px;
+  color: #0077b6;
+}
+
+.brewery p {
+  margin: 4px 0;
+  font-size: 15px;
+  color: #444;
+}
+
+.brewery strong {
+  color: #111;
+}
+
+.brewery a {
+  color: #198754;
+  font-weight: 500;
+  text-decoration: none;
+  display: inline-block;
+  margin-top: 6px;
+}
+
+.brewery a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 600px) {
+  .search-row {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .search-row select,
+  .search-row input,
+  .search-row button {
+    width: 100%;
+  }
+
+  .brewery {
+    width: 100%;
+    max-width: 100%;
+  }
+}

@@ -1,11 +1,71 @@
-fetch('https://api.openbrewerydb.org/breweries')
-  .then(response => response.json())
-  .then(data => {
-    const list = document.getElementById('brewery-list');
-    data.forEach(brewery => {
-      const li = document.createElement('li');
-      li.textContent = `${brewery.name} (${brewery.city}, ${brewery.state})`;
-      list.appendChild(li);
+const searchInput = document.getElementById("searchInput");
+const resultsContainer = document.getElementById("results");
+const loadingIndicator = document.getElementById("loading");
+
+// Show/hide the loading spinner
+function showLoading(show) {
+  loadingIndicator.classList.toggle("hidden", !show);
+}
+
+// Search breweries by city
+function searchBreweries() {
+  const city = document.getElementById("searchInput").value.trim();
+  const state = document.getElementById("stateSelect").value;
+  const type = document.getElementById("typeSelect").value;
+
+  let url = "https://api.openbrewerydb.org/v1/breweries?per_page=30";
+
+  if (city) {
+    url += `&by_city=${encodeURIComponent(city)}`;
+  }
+  if (state) {
+    url += `&by_state=${encodeURIComponent(state)}`;
+  }
+  if (type) {
+    url += `&by_type=${encodeURIComponent(type)}`;
+  }
+
+  resultsContainer.innerHTML = "";
+  showLoading(true);
+
+  fetch(url)
+    .then((response) => {
+      if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+      return response.json();
+    })
+    .then((data) => {
+      showLoading(false);
+      displayResults(data);
+    })
+    .catch((error) => {
+      showLoading(false);
+      console.error("API Error:", error);
+      resultsContainer.innerHTML =
+        "<p style='color: red;'>❌ Failed to load data. Try again later.</p>";
     });
-  })
-  .catch(error => console.error('Error:', error));
+}
+
+
+// Render results on the page
+function displayResults(breweries) {
+  if (!breweries || breweries.length === 0) {
+    resultsContainer.innerHTML = "<p>No breweries found for that city.</p>";
+    return;
+  }
+
+  breweries.forEach((brewery) => {
+    const div = document.createElement("div");
+    div.className = "brewery";
+    div.innerHTML = `
+      <h3>${brewery.name}</h3>
+      <p><strong>Type:</strong> ${brewery.brewery_type || "N/A"}</p>
+      <p><strong>Location:</strong> ${brewery.city || ""}, ${brewery.state || ""}</p>
+      ${
+        brewery.website_url
+          ? `<p><a href="${brewery.website_url}" target="_blank">🌐 Visit Website</a></p>`
+          : ""
+      }
+    `;
+    resultsContainer.appendChild(div);
+  });
+}

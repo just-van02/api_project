@@ -10,11 +10,32 @@
   <div class="container">
     <h1>Brewery Finder 🍺</h1>
 
-    <div class="search-box">
+    <!-- 🔍 Search + Filters Row -->
+    <div class="search-row">
+      <select id="stateSelect">
+        <option value="">All States</option>
+        <option value="california">California</option>
+        <option value="texas">Texas</option>
+        <option value="new_york">New York</option>
+        <option value="colorado">Colorado</option>
+        <option value="oregon">Oregon</option>
+      </select>
+
+      <select id="typeSelect">
+        <option value="">All Types</option>
+        <option value="micro">Micro</option>
+        <option value="regional">Regional</option>
+        <option value="brewpub">Brewpub</option>
+        <option value="large">Large</option>
+        <option value="planning">Planning</option>
+        <option value="contract">Contract</option>
+        <option value="proprietor">Proprietor</option>
+      </select>git
+
       <input
         type="text"
         id="searchInput"
-        placeholder="Search by name, city, or state..."
+        placeholder="Enter a city (e.g., San Diego)"
       />
       <button onclick="searchBreweries()">Search</button>
     </div>
