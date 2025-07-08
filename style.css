@@ -1,5 +1,5 @@
 body {
-  font-family: 'Segoe UI', sans-serif;
+  font-family: "Segoe UI", sans-serif;
   background: #f8f8f8;
   margin: 0;
   padding: 0;
@@ -18,7 +18,6 @@ h1 {
   color: #222;
 }
 
-/* 🆕 Search Row Layout */
 .search-row {
   display: flex;
   flex-wrap: wrap;
@@ -39,7 +38,6 @@ h1 {
   transition: all 0.2s ease-in-out;
 }
 
-/* 🔽 Compact sizes */
 .search-row select {
   width: 120px;
 }
@@ -48,7 +46,6 @@ h1 {
   width: 160px;
 }
 
-/* ✅ Green Search Button */
 .search-row button {
   background-color: #198754;
   color: white;
@@ -79,12 +76,10 @@ h1 {
   color: #555;
 }
 
-
 .hidden {
   display: none;
 }
 
-/* 🆕 Centered Results Container */
 #results {
   display: flex;
   flex-direction: column;
@@ -92,7 +87,6 @@ h1 {
   margin-top: 20px;
 }
 
-/* 🆕 Stylish Card for Brewery */
 .brewery {
   background: #ffffff;
   margin-bottom: 20px;
@@ -137,6 +131,26 @@ h1 {
 
 .brewery a:hover {
   text-decoration: underline;
+}
+
+.fade-sides {
+  width: 100%;
+  max-width: 600px;
+  display: block;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    black 20%,
+    black 80%,
+    transparent
+  );
 }
 
 @media (max-width: 600px) {
