@@ -2,12 +2,10 @@ const searchInput = document.getElementById("searchInput");
 const resultsContainer = document.getElementById("results");
 const loadingIndicator = document.getElementById("loading");
 
-// Show/hide the loading spinner
 function showLoading(show) {
   loadingIndicator.classList.toggle("hidden", !show);
 }
 
-// Search breweries by city
 function searchBreweries() {
   const city = document.getElementById("searchInput").value.trim();
   const state = document.getElementById("stateSelect").value;
@@ -45,8 +43,6 @@ function searchBreweries() {
     });
 }
 
-
-// Render results on the page
 function displayResults(breweries) {
   if (!breweries || breweries.length === 0) {
     resultsContainer.innerHTML = "<p>No breweries found for that city.</p>";
