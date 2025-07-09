@@ -18,6 +18,82 @@ h1 {
   color: #222;
 }
 
+.search-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.search-row select,
+.search-row input,
+.search-row button {
+  padding: 8px 10px;
+  font-size: 14px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+  transition: all 0.2s ease-in-out;
+}
+
+.search-row select {
+  width: 120px;
+}
+
+.search-row input[type="text"] {
+  width: 160px;
+}
+
+.search-row button {
+  background-color: #198754;
+  color: white;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.search-row button:hover {
+  background-color: #157347;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.search-row select:hover,
+.search-row input:hover,
+.search-row select:focus,
+.search-row input:focus {
+  border-color: #999;
+  outline: none;
+  box-shadow: 0 0 4px rgba(100, 100, 100, 0.1);
+}
+
+.loading {
+  font-weight: bold;
+  margin-bottom: 20px;
+  text-align: center;
+  font-size: 16px;
+  color: #555;
+}
+
+.logo {
+  display: block;
+  margin: 20px auto 10px auto;
+  max-width: 350px;
+  height: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+#results {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
 .filter-row {
   display: flex;
   gap: 0.5rem;
@@ -52,49 +128,6 @@ h1 {
 .filter-row button {
   padding: 0.3em 1.2em;
   font-size: 1em;
-  background-color: #198754;
-  color: white;
-  border: none;
-  cursor: pointer;
-  font-weight: 500;
-  border-radius: 8px;
-}
-
-.filter-row button:hover {
-  background-color: #157347;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
-}
-
-.loading {
-  font-weight: bold;
-  margin-bottom: 20px;
-  text-align: center;
-  font-size: 16px;
-  color: #555;
-}
-
-.logo {
-  display: block;
-  margin: 20px auto 10px auto;
-  max-width: 350px;
-  height: auto;
-}
-
-.hidden {
-  display: none;
-}
-
-#results {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-#results p {
-  font-size: 16px;
-  font-weight: 500;
-  margin-bottom: 1rem;
 }
 
 .brewery {
@@ -142,16 +175,39 @@ h1 {
   text-decoration: underline;
 }
 
+.brewery-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brewery-text {
+  flex: 1;
+}
+
+.state-logo {
+  width: 120px; 
+  height: auto;
+  border-radius: 4px;
+}
+
 @media (max-width: 600px) {
-  .filter-row {
+  .search-row {
     flex-direction: column;
     align-items: stretch;
   }
 
-  .filter-row select,
-  .filter-row input,
-  .filter-row button {
-    width: 100%;
+  .search-row select {
+    width: 100px;
+  }
+
+  .search-row input {
+    width: 220px;
+  }
+
+  .search-row button {
+    width: 220px;
   }
 
   .brewery {

@@ -51,16 +51,25 @@ function displayResults(breweries) {
   breweries.forEach((brewery) => {
     const div = document.createElement("div");
     div.className = "brewery";
+    const stateKey = (brewery.state || "").toLowerCase().replace(/\s/g, "_");
+    const logoPath = `./assets/${stateKey}.jpeg`;
+
     div.innerHTML = `
-      <h3>${brewery.name}</h3>
-      <p><strong>Type:</strong> ${brewery.brewery_type || "N/A"}</p>
-      <p><strong>Location:</strong> ${brewery.city || ""}, ${brewery.state || ""}</p>
-      ${
-        brewery.website_url
-          ? `<p><a href="${brewery.website_url}" target="_blank">🌐 Visit Website</a></p>`
-          : ""
-      }
+      <div class="brewery-content">
+        <div class="brewery-text">
+          <h3>${brewery.name}</h3>
+          <p><strong>Type:</strong> ${brewery.brewery_type || "N/A"}</p>
+          <p><strong>Location:</strong> ${brewery.city || ""}, ${brewery.state || ""}</p>
+          ${
+            brewery.website_url
+              ? `<p><a href="${brewery.website_url}" target="_blank">🌐 Visit Website</a></p>`
+              : ""
+          }
+        </div>
+        <img src="${logoPath}" alt="${brewery.state} Logo" class="state-logo" onerror="this.style.display='none';" />
+      </div>
     `;
+
     resultsContainer.appendChild(div);
   });
 }
