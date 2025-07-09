@@ -8,7 +8,7 @@
 </head>
 <body>
   <div class="container">
-   <img src="./assets/BeerChaser (Black).png" alt="BeerChaser Logo" class="logo">
+    <img src="./assets/BeerChaser (Black).png" alt="BeerChaser Logo" class="logo">
 
     <div class="filter-row">
       <select id="stateSelect">
@@ -35,6 +35,8 @@
         type="text"
         id="searchInput"
         placeholder="Enter a city (e.g., San Diego)"
+        autofocus
+        onkeydown="if(event.key==='Enter'){searchBreweries();}"
       />
       <button onclick="searchBreweries()">Search</button>
     </div>

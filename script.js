@@ -7,21 +7,20 @@ function showLoading(show) {
 }
 
 function searchBreweries() {
-  const city = document.getElementById("searchInput").value.trim();
+  const city = searchInput.value.trim();
   const state = document.getElementById("stateSelect").value;
   const type = document.getElementById("typeSelect").value;
 
-  let url = "https://api.openbrewerydb.org/v1/breweries?per_page=30";
+  //Input validation: require at least one filter
+  if (!city && !state && !type) {
+    resultsContainer.innerHTML = "<p style='color:red;'>⚠️ Please enter a city, state, or brewery type to search.</p>";
+    return;
+  }
 
-  if (city) {
-    url += `&by_city=${encodeURIComponent(city)}`;
-  }
-  if (state) {
-    url += `&by_state=${encodeURIComponent(state)}`;
-  }
-  if (type) {
-    url += `&by_type=${encodeURIComponent(type)}`;
-  }
+  let url = "https://api.openbrewerydb.org/v1/breweries?per_page=30";
+  if (city) url += `&by_city=${encodeURIComponent(city)}`;
+  if (state) url += `&by_state=${encodeURIComponent(state)}`;
+  if (type) url += `&by_type=${encodeURIComponent(type)}`;
 
   resultsContainer.innerHTML = "";
   showLoading(true);
@@ -45,7 +44,7 @@ function searchBreweries() {
 
 function displayResults(breweries) {
   if (!breweries || breweries.length === 0) {
-    resultsContainer.innerHTML = "<p>No breweries found for that city.</p>";
+    resultsContainer.innerHTML = "<p style='color: orange;'>😕 No breweries found for that filter.</p>";
     return;
   }
 
