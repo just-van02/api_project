@@ -4,11 +4,13 @@ body {
   margin: 0;
   padding: 0;
   color: #333;
+}
 
 .container {
   max-width: 1000px;
   margin: 0 auto;
   padding: 20px;
+}
 
 h1 {
   text-align: center;
@@ -38,12 +40,10 @@ h1 {
 
 .search-row select {
   width: 120px;
-  border-radius: 8px;
 }
 
 .search-row input[type="text"] {
   width: 160px;
-  border-radius: 8px;
 }
 
 .search-row button {
@@ -52,7 +52,6 @@ h1 {
   border: none;
   cursor: pointer;
   font-weight: 500;
-  border-radius: 8px;
 }
 
 .search-row button:hover {
@@ -176,6 +175,23 @@ h1 {
   text-decoration: underline;
 }
 
+.brewery-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+}
+
+.brewery-text {
+  flex: 1;
+}
+
+.state-logo {
+  width: 120px; 
+  height: auto;
+  border-radius: 4px;
+}
+
 @media (max-width: 600px) {
   .search-row {
     flex-direction: column;
@@ -189,19 +205,9 @@ h1 {
   .search-row input {
     width: 220px;
   }
-  .search-row button {
-    width: 220px;
-  }
 
-  .brewery {
-    width: 100%;
-    max-width: 100%;
-  }
-}
-  }
   .search-row button {
     width: 220px;
-    
   }
 
   .brewery {
