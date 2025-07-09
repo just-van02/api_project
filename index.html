@@ -3,45 +3,63 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Brewery Finder 🍺</title>
+  <title>Brewery Finder �</title>
   <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 <body>
+  <div class="background-overlay"></div>
   <div class="container">
     <img src="./assets/BeerChaser (Black).png" alt="BeerChaser Logo" class="logo">
 
-    <div class="filter-row">
-      <select id="stateSelect">
-        <option value="">All States</option>
-        <option value="california">California</option>
-        <option value="texas">Texas</option>
-        <option value="new_york">New York</option>
-        <option value="colorado">Colorado</option>
-        <option value="oregon">Oregon</option>
-      </select>
+    <div class="search-card">
+      <div class="filter-row">
+        <div class="select-wrapper">
+          <i class="fas fa-map-marker-alt"></i>
+          <select id="stateSelect">
+            <option value="">All States</option>
+            <option value="california">California</option>
+            <option value="texas">Texas</option>
+            <option value="new_york">New York</option>
+            <option value="colorado">Colorado</option>
+            <option value="oregon">Oregon</option>
+          </select>
+        </div>
 
-      <select id="typeSelect">
-        <option value="">All Types</option>
-        <option value="micro">Micro</option>
-        <option value="regional">Regional</option>
-        <option value="brewpub">Brewpub</option>
-        <option value="large">Large</option>
-        <option value="planning">Planning</option>
-        <option value="contract">Contract</option>
-        <option value="proprietor">Proprietor</option>
-      </select>
+        <div class="select-wrapper">
+          <i class="fas fa-beer"></i>
+          <select id="typeSelect">
+            <option value="">All Types</option>
+            <option value="micro">Micro</option>
+            <option value="regional">Regional</option>
+            <option value="brewpub">Brewpub</option>
+            <option value="large">Large</option>
+            <option value="planning">Planning</option>
+            <option value="contract">Contract</option>
+            <option value="proprietor">Proprietor</option>
+          </select>
+        </div>
 
-      <input
-        type="text"
-        id="searchInput"
-        placeholder="Enter a city (e.g., San Diego)"
-        autofocus
-        onkeydown="if(event.key==='Enter'){searchBreweries();}"
-      />
-      <button onclick="searchBreweries()">Search</button>
+        <div class="search-wrapper">
+          <i class="fas fa-search"></i>
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Enter a city (e.g., San Diego)"
+            autofocus
+            onkeydown="if(event.key==='Enter'){searchBreweries();}"
+          />
+        </div>
+        <button onclick="searchBreweries()" class="search-btn">
+          <i class="fas fa-search"></i> Search
+        </button>
+      </div>
     </div>
 
-    <div id="loading" class="loading hidden">Loading...</div>
+    <div id="loading" class="loading hidden">
+      <div class="spinner"></div>
+      <span>Finding breweries...</span>
+    </div>
     <div id="results" class="results"></div>
   </div>
 
